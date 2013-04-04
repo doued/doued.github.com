@@ -1,0 +1,477 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | 归档：2013 | 悔惜晟Blog</title>
+  <meta name="author" content="huixisheng">
+  
+  <meta name="description" content="记录前端的生活">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="悔惜晟Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="悔惜晟Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">悔惜晟Blog</a></h1>
+  <h2><a href="/">Web前端</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2013</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-27T16:00:00.000Z"><a href="/2013/03/28/ucenter-summary/">Mar 28 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/28/ucenter-summary/">个人中心项目总结</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这是进公司接手的第一个项目。项目中各种心酸。在此留个纪念，聊表心情。也算是自己对项目的回顾。希望接下来做项目时踩过的坑可以不会再踩。在公司前端小组的例会上也做过分享。</p>
+<p>在公司前端小组的例会上也做过分享，总结主要分为6个方面。</p>
+<pre><code><span class="bullet">1. </span>项目背景        
+<span class="bullet">2. </span>前端“架构”    
+<span class="bullet">3. </span>前端文件“自动化”发布        
+<span class="bullet">4. </span>不足之处        
+<span class="bullet">5. </span>各种神伤        
+<span class="bullet">6. </span>不变应万变        
+</code></pre>
+<p>从接手到现在为止的项目中间大大小小对项目进行了2次调整。最初的项目还是叫sns，公司应该是要打造股民的微博吧。当时是边开发边调整，之前遗留下来很多问题，特别是IE浏览器的兼容性问题。对前端文件的组织结构进行了调整。删除了很多没用的文件，制定了一些前端的规范。当时前端有2人，另一个主要是写js的。我主要负责切图和一点点js。后面由于项目的关系，该项目没有上线。可以说是废弃。重新改版叫<a href="http://t.10jqka.com.cn/127750329">个人中心</a>。算是一个新的项目重新开始开发，功能跟之前的sns差不多，但是项目的人员变动很大，后台有好几个离职，写js的涛爷也走了，所以js的活全部都到了我手上。先前的sns项目积累了经验，前端的“架构”融入了自己的思想，但是前期的设计应对产品经理各种变来变去的需求还是很吃力的。期间也不停地进行调整，最悲剧的就是项目在ie神器下面的前端性能很差，改了好长的时间，性能稍微有了提升。项目上线后页面经常有调整同时需要发布。每次的发布都需要将js、css、images分别压缩成zip的文件上线到公司的静态资源服务器。每次要这样我都觉得好麻烦。后面用nodejs写了个可以自动压缩zip文件的“自动化”脚本，省去了中间很多没有必要的重复性的劳动，大大地节省时间。</p>
+<p>以下零碎的总结算是项目中收获吧：</p>
+<pre><code><span class="bullet">* </span>布局多考虑自适应    
+<span class="bullet">* </span>html结构考虑可扩展性，应对很多无厘头的需求变化    
+<span class="bullet">* </span>UI组件提取，复用其他项目    
+<span class="bullet">* </span>公用的js代码分离
+<span class="bullet">* </span>js代码必须添加注释
+<span class="bullet">* </span>代码使用OOP原则    
+<span class="bullet">* </span>降低代码的耦合性    
+<span class="bullet">* </span>提高代码的重用率    
+<span class="bullet">* </span>同后台协商一些约定    
+<span class="bullet">* </span>项目必须要有规范
+<span class="bullet">* </span>该用a标签的地方请用a标签，按需加_blank
+<span class="bullet">* </span>CSS添加必要的注释
+<span class="bullet">* </span>按钮方面多考虑渐进增强
+<span class="bullet">* </span>对低版本IE浏览器可以优雅降级
+<span class="bullet">* </span>OOCSS原则
+<span class="bullet">* </span>减少后台的判断，使用负编辑减少多余的右边距和下边距等
+<span class="bullet">* </span>异常数据的处理（长英文，长用户名，一连串很长的英文等）
+<span class="bullet">* </span>小图标拼Spirit图，必须备份拼好的PSD
+<span class="bullet">* </span>测试的图片放在images/test 下，不要上传资源服务器
+<span class="bullet">* </span>Copy他人结构和css的时候按需copy
+<span class="bullet">* </span>先测兼容性再给后台开发
+<span class="bullet">* </span>多做总结，多看他人优秀的代码和开源的前端框架
+<span class="bullet">* </span>待补充
+</code></pre>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/03/28/ucenter-summary/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-06T16:00:00.000Z"><a href="/2013/03/07/write-css-no-repeat/">Mar 7 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/07/write-css-no-repeat/">让CSS书写不在重复</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>项目开发中处理ie浏览器的兼容性需要各种奇淫技巧，有很多CSS在项目中总是不断的重复，有时候我们选择了ctrl+c ctrl+v，但是有时不知哪里去ctrl+c，只好谷歌，百度。这是一个多么让人纠结的过程呢。</p>
+<p>我用的是Sublime Text2，强烈推荐使用。自然想到了代码自动补全，输入简短的几个字母就能输出很长的CSS兼容性代码，那该是多么美好的事情。算是总结自己的代码片段，希望这个可以提高开发的效率。将<a href="http://huixisheng.github.com/Tools/SublimeUser.rar">SublimeUser.rar</a>解压后的文件放到Sublime Text2的Packages\User\ 目录下。</p>
+<p>PS:Sublime Text2添加代码补全的方法：Tools -&gt; New Snippet</p>
+<p>输入<code>clearfix</code>
+选择clearfix 回车</p>
+<pre><code><span class="class">.clearfix</span><span class="pseudo">:before</span>,<span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">{<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span>;</span></span><span class="rule"><span class="attribute">display</span>:<span class="value">table}</span></span></span>
+<span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">{<span class="rule"><span class="attribute">clear</span>:<span class="value">both;</span></span><span class="rule">}</span></span>
+<span class="class">.clearfix</span> <span class="rules">{<span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span>;</span></span> <span class="rule"><span class="attribute">clear</span>:<span class="value">both}</span></span></span>
+</code></pre>
+<p>具体的输入规则请看下图：
+<img src="http://huixisheng.github.com/images/article/css-no-repeat.png" alt="css-no-repeat"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/03/07/write-css-no-repeat/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-15T16:00:00.000Z"><a href="/2013/01/16/markdown-test/">Jan 16 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/01/16/markdown-test/">mardowm语法简单测试</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>本文是学习markdown语法做的一些简单测试。</p>
+<p>一个回车或者大于等于2个空格是一个段落。</p>
+<h1>1个#号可以生成h1</h1>
+<h2>2个#号可以生成h2</h2>
+<h3>3个#号可以生成h3</h3>
+<p>下面以此类推到h6</p>
+<p>一个Tab可以生成code BlockS</p>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+        <span class="class">.clas</span><span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12</span>px;</span></span><span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"page"</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre>
+<p>在一个段落前面加<code>&gt;</code>可以生成一个 blockquotes</p>
+<blockquote>
+<p>我是用<code>&gt;</code>生成的blockquote</p>
+</blockquote>
+<p>数字<code>1. 2.</code>生成有序列表</p>
+<ol>
+<li>我是有序列表第1个<code>li</code></li>
+<li>我是有序列表第2个<code>li</code></li>
+<li>我是有序列表第3个<code>li</code></li>
+</ol>
+<hr>
+<h2>长的有序列表测试</h2>
+<ol>
+<li>工作中碰到的困难只是暂时的，不管是怎样的困难，    </li>
+<li>项目开始前，必须对项目的架构做可行性、    </li>
+<li>不要停下你学习脚步，不管你在现在在做的项目中有没有碰到困难，都要及时地给自己充电，拓宽自己的知识面和提高自己的技能    </li>
+</ol>
+<p>字符<code>*、+、-</code>生成无序列表</p>
+<ul>
+<li>我是无序列表第1个<code>li</code></li>
+<li>我是无序列表第2个<code>li</code></li>
+<li>我是无序列表第3个<code>li</code></li>
+</ul>
+<p><strong>PS:每个列表的末尾需要4个空格或者tab</strong></p>
+<p>链接和图片生成的方法</p>
+<pre><code><span class="link_label">[链接名称]</span>(<span class="link_url">链接</span>)
+!<span class="link_label">[图片名称]</span>(<span class="link_url">链接</span>)
+</code></pre>
+<p><a href="https://github.com/huixisheng/huixisheng.github.com/generated_pages/new">链接测试</a></p>
+<p><img src="http://huixisheng.github.com/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" alt="测试图片"></p>
+<p>我是code<code>code</code>,我是<strong>加粗</strong>，我是<strong>斜体</strong></p>
+<p><code>***</code>可以生成hr</p>
+<hr>
+<p>单纯的链接根式<code>&lt;链接&gt;</code><br><a href="http://huixisheng.github.com/">http://huixisheng.github.com/</a></p>
+<p>特殊的字符需要转义， _ *</p>
+<hr>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/01/16/markdown-test/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-01-15T16:00:00.000Z"><a href="/2013/01/16/2012summary/">Jan 16 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/01/16/2012summary/">2012年度总结</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>第一次写年度总结，不知该写些什么，以下算是毕业到现在的一个小小的总结吧。</p>
+<p>2012年来了，我们还活着，我们将要满怀热情地迎接2013年的到来，在年终之际，现对来公司半年多的时间里，总结自己所做的工作，总结经验教训，希望在新的一年中工作效率更高，工作质量更好。当然在此感谢团队成员在工作上对我的帮助，对我的信任。特别要感谢的的是在我茫然的时候主管对我思想上的开解，上级对下级工作的关怀，让我觉得主管并非主管，可以像朋友那样谈谈心的。</p>
+<p>从学校过渡到社会，这个是人生一个巨大的转变，记得初到公司，我并没有茫然和不知所措，相反地很快地进入开发的角色，融入了团队当中。为何选择前端这份工作，当初是因为兴趣，觉得能让页面在那么多匪夷所思的浏览器上显示正常，是一件相当长有成就感的事情。在工作做了好几个项目已经上线，能让用户体验更好，自己做的项目有吸引更多的用户，当然还有就是自己做的项目利于公司的发展。当初的执着、兴趣仍旧还在，并且变都更加强烈。在学校的所学在工作中得以运用，真是是一件让人很自豪的事情。</p>
+<h2>下面对半年来的工作<strong>内容总结</strong>如下：</h2>
+<pre><code><span class="bullet">1. </span>SNS项目第11期至第15期的前端全部切图和部分前端交互工作，由于项目原因，该项目终止，改为Ucenter（个人中心）    
+<span class="bullet">2. </span>高校模拟炒股第1期至第2期的前端全部切图和部分前端交互工作，由于项目冲突，该项目转给其他人        
+<span class="bullet">3. </span><span class="link_label">[问股]</span>(<span class="link_url">http://ask.10jqka.com.cn/</span>)，前端全部切图和大部分前端交互工作        
+<span class="bullet">4. </span>股灵通（SNS的客户端），前端部分切图和部分前端交互，前端文件部署    
+<span class="bullet">5. </span><span class="link_label">[Ucenter（个人中心）]</span>(<span class="link_url">http://t.10jqka.com.cn/127750329</span>)第1期至现在前端的切图和几乎全部的前端交互，该项目前端前端文件（JS、CSS）自动压缩工具研发并投入使用。    
+<span class="bullet">6. </span>前端例会上项目总结和项目中碰到的问题的分享    
+<span class="bullet">7. </span>社区（<span class="link_label">[BBS](http://bbs.10jqka.com.cn/)、[Blog]</span>(<span class="link_url">http://blog.10jqka.com.cn/</span>)）一些日常维护工作和小功能的前端开发    
+</code></pre>
+<h2>半年来工作中的<strong>所思所想</strong>总结如下：</h2>
+<pre><code><span class="bullet">1. </span>工作中碰到的困难只是暂时的，不管是怎样的困难，都要通过你的毅力和专业的知识去克服    
+<span class="bullet">2. </span>项目开始前，必须对项目的架构做可行性、可维护性、可扩展性做深入的分析，使用一套适合该项目快速开发的模式    
+<span class="bullet">3. </span>不要停下你学习脚步，不管你在现在在做的项目中有没有碰到困难，都要及时地给自己充电，拓宽自己的知识面和提高自己的技能    
+<span class="bullet">4. </span>如果项目紧急，不管再忙该加班的时候必须站出来    
+<span class="bullet">5. </span>做一个项目要以结果为导向，用最后项目的成果向主管说话，如果项目反馈有Bug必须主动承担，及时纠正    
+<span class="bullet">6. </span>在工作之余，要好好照顾自己，如果身体不适必然对工作有影响，在此总结一句话：身体是革命的本钱    
+<span class="bullet">7. </span>当办公电脑坏了，赶紧找公司的修理人员，他们很忙，最好是“蹲点守着”他们帮你电脑修好
+<span class="bullet">8. </span>对于办公的电脑重要的文件要备份其他盘，而不是放在C盘，软件最好装绿色软件，这样即使电脑系统坏了，重装系统后软件就不用在重新安装    
+<span class="bullet">9. </span>如果手头的事情很多，要合理地安排工作的顺序，而不是因为这样而手忙脚乱    
+<span class="bullet">10. </span>可以写一些自动化的脚本工具，从而提高开发效率    
+<span class="bullet">11. </span>当需求有变动的时候，不要抱怨不要埋怨，互联网的产品都是这样，只有不断的地改进才能把产品做的更好    
+<span class="bullet">12. </span>前端除了把前端的技能提升，也要去了解后台的代码，这样可以提高开发效率，同时可以更好地配合后台开发    
+</code></pre>
+<p>工作了这么久，当然也发现自身在工作中一些不足之处，有不足不要紧，要紧的是要发挥自己的强项，同时改善自己的弱项。</p>
+<h2>下面对自己的<strong>不足之处</strong>做一个总结：</h2>
+<pre><code><span class="bullet">1. </span>公司是一个证券类型的公司，而我可以说是对股票知识一窍不通，虽然参加了几次培训，稍微对股票的知识有了了解，但是知识的还是太少    
+<span class="bullet">2. </span>对产品的定位不熟悉，当页面涉及到细节的时候总是把握不好，不能像产品经理一样从用户的角度去看待产品，主观的意识太强烈    
+<span class="bullet">3. </span>在前端的性能优化方面做的还是不够好，虽然把一些前端性能的优化方案运用项目当中去，但是这些还是远远不够的    
+<span class="bullet">4. </span>对于参与前端例会和前端俱乐部的分享不够积极，虽然有很多内容想跟大家分享，但是最后还是因为某些原因为自己找借口推脱了    
+<span class="bullet">5. </span>有时会因为一些需求的变动对产品经理表示不理解，有时甚至觉得他很无理，现在想想，是在是不应该，我应该从多角度去思考问题，当然也要站在项目的角度和他人的角度去看待问题，而不是有学生时候的思想去武断问题    
+<span class="bullet">6. </span>前端的交互工作虽然都能完成，但是有时写好的代码Bug很多，自己对自己的代码测试总不能测出问题，可队友对我完成的功能一使用就发现有问题存在，以后在项目开发中尽量避免Bug，最好是做到杜绝Bug    
+<span class="bullet">7. </span>对项目开发的估时工作做的不好，有好多次估时跟开发的时间有出入，主要原因应该是对需求不够了解，以后项目开始初期一定要给出更加合理的项目的开发时间
+<span class="bullet">8. </span>对网站的SEO的优化还是太少    
+</code></pre>
+<p>说了那么多自己的不足，上面只是些很有代表性的几点，不足每个人都有，关键是要正确地看待他们，在项目开发中发挥自己的长处的，完善自己的不足，这才是一个合格的程序员的发展之路。</p>
+<h2>下面对自己的一些优点做下总结，算是鼓励下自己。</h2>
+<pre><code><span class="bullet">1. </span>职业素养的提高，说几个自豪的事情，从转正到目前为止没有请过一次假，早上准时或者提早到公司，甚至提早到公司，有时早上8点就进入工作状态    
+<span class="bullet">2. </span>JS技能的提升，渐渐地使得后端脱离了写他们讨厌的JS代码，实现真正意义上的前端工作    
+<span class="bullet">3. </span>前端项目架构能力的提示，能从可扩展、可维护性、可重用性等多方面多角度地去组织项目    
+<span class="bullet">4. </span>敢于尝试新技术，并且把这些新的技术成功地运用到项目当中，从而对提高开发效率，提升网站的性能    
+<span class="bullet">5. </span>热衷于关注互联网的前沿技术    
+</code></pre>
+<p>回顾过去，展望未来，未来是美好的。在这里我要留下</p>
+<h2><strong>明年的计划</strong>：</h2>
+<pre><code><span class="bullet">1. </span>不断提升自己的技能，特别是JS方面，还有了解网站的性能优化，SEO等，并且运用到项目当中去        
+<span class="bullet">2. </span>积极参与前端例会和前端俱乐部的分享活动，不断进行项目中，将好的经验同大家分享，在提升自己能力的同时可以给他人提供更多的问题的解决思路和办法
+<span class="bullet">3. </span>对后台语言PHP的熟悉、一些常用的Linux命令的学习，工作可以更加方便        
+<span class="bullet">4. </span>密切关注互联网前沿技术的发展，特别是HTML5、CSS3等        
+<span class="bullet">5. </span>通过不断尝试，寻找一套适合社区前端开发的一种模式
+</code></pre>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/01/16/2012summary/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/archives/2013/" class="alignleft prev">上一页</a>
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/CSS/">CSS</a><small>2</small></li>
+  
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>3</small></li>
+  
+    <li><a href="/categories/Web前端/">Web前端</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/categories/前端工具/">前端工具</a><small>1</small></li>
+  
+    <li><a href="/categories/前端规范/">前端规范</a><small>1</small></li>
+  
+    <li><a href="/categories/项目总结/">项目总结</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2012/">2012</a><small>1</small></li>
+  
+    <li><a href="/tags/CSS/">CSS</a><small>3</small></li>
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
+  
+    <li><a href="/tags/OOP/">OOP</a><small>1</small></li>
+  
+    <li><a href="/tags/bootsrap/">bootsrap</a><small>1</small></li>
+  
+    <li><a href="/tags/margin/">margin</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/this/">this</a><small>1</small></li>
+  
+    <li><a href="/tags/优秀前端博客/">优秀前端博客</a><small>1</small></li>
+  
+    <li><a href="/tags/前端工具/">前端工具</a><small>1</small></li>
+  
+    <li><a href="/tags/前端性能/">前端性能</a><small>1</small></li>
+  
+    <li><a href="/tags/前端规范/">前端规范</a><small>1</small></li>
+  
+    <li><a href="/tags/导航/">导航</a><small>1</small></li>
+  
+    <li><a href="/tags/年度总结/">年度总结</a><small>1</small></li>
+  
+    <li><a href="/tags/手册/">手册</a><small>1</small></li>
+  
+    <li><a href="/tags/效率/">效率</a><small>2</small></li>
+  
+    <li><a href="/tags/整理/">整理</a><small>2</small></li>
+  
+    <li><a href="/tags/正则/">正则</a><small>1</small></li>
+  
+    <li><a href="/tags/资源/">资源</a><small>1</small></li>
+  
+    <li><a href="/tags/项目总结/">项目总结</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 huixisheng
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'huixisheng';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

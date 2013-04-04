@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>归档：2013/4 | 悔惜晟Blog</title>
+  <meta name="author" content="huixisheng">
+  
+  <meta name="description" content="记录前端的生活">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="悔惜晟Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="悔惜晟Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">悔惜晟Blog</a></h1>
+  <h2><a href="/">Web前端</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2013/4</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T16:00:00.000Z"><a href="/2013/04/03/web-front-end-tools/">Apr 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/03/web-front-end-tools/">前端开发工具收集和整理</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>todo。。</p>
+<h3>参考链接</h3>
+<p><a href="http://www.cnblogs.com/ambar/archive/2011/11/09/25-secrets-of-the-browser-developer-tools-in-chinese.html#top">【翻译】25个浏览器开发工具的秘密</a></p>
+<p><a href="http://ued.taobao.com/blog/2012/06/debug-with-chrome-dev-tool/">chrome developer tool 调试技巧</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/03/web-front-end-tools/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T16:00:00.000Z"><a href="/2013/04/03/some-problem-in-project-diary/">Apr 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/03/some-problem-in-project-diary/">项目中碰到的问题随笔</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3>ajax服务器端接收数据时&quot;+&quot;会丢失</h3>
+<p>jQuery的ajax通过get的方法传参数，如果参数含有<code>+、&amp;</code>等，会导致内容丢失。<br>&quot;+&quot;号：JavaScript解析为字符串连接符，所以服务器端接收数据时&quot;+&quot;会丢失。<br>&quot;&amp;&quot;：JavaScript解析为变量连接符，所以服务器端接收数据时&amp;符号以后的数据都会丢失。<br>解决办法：ajax的data改为Object。以下是网上的方法：在传到服务端之前先将参数中的&quot;+&quot;和&quot;&amp;&quot;符号都编码一下
+    function filter(str){
+        str = str.replace(/+/g,&quot;%2B&quot;);
+        str = str.replace(/\&amp;/g,&quot;%26&quot;);
+        return str;
+    }</p>
+<h3>JavaScript编码转换</h3>
+<p>常用的函数:使用 unescape() 对 escape() 编码的字符串进行解码、decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码、decodeURI() 函数可对 encodeURI() 函数编码过的URI 进行解码。 encodeURIComponent会对/也进行十六进制转义，而encodeURI不会。</p>
+<p>escape的一个应用就是将中文转成unicode编码
+    escape(&quot;悔惜晟&quot;).replace(/%/g, &#39;\&#39;)</p>
+<h3>CSS强制英文、中文换行与不换行</h3>
+<p>white-space:nowrap; 强制不换行，都起作用<br>white-space:pre-wrap; 只对中文起作用，强制换行<br>项目中用来打散成串的因为</p>
+<h3>jQuery ajaxFileUpload.js 插件 ie9 下bug</h3>
+<pre><code><span class="title">if</span>(window.<span class="type">ActiveXObject</span>) {
+    <span class="keyword">if</span>(jQuery.browser.version==<span class="string">"9.0"</span>){
+        var io = document.createElement('iframe');
+        io.id = frameId;
+        io.name = frameId;
+    }<span class="keyword">else</span> <span class="keyword">if</span>(jQuery.browser.version==<span class="string">"6.0"</span> || jQuery.browser.version==<span class="string">"7.0"</span> || 
+            jQuery.browser.version==<span class="string">"8.0"</span>){
+         var io = document.createElement('&lt;iframe id=<span class="string">"' + frameId + '"</span> name=<span class="string">"' + frameId + '"</span> /&gt;');
+         <span class="keyword">if</span>(<span class="typedef">typeof uri== 'boolean')<span class="container">{
+             <span class="title">io</span>.<span class="title">src</span> = '<span class="title">javascript</span>:<span class="title">false'</span>;
+         }</span></span>
+         <span class="keyword">else</span> <span class="keyword">if</span>(<span class="typedef">typeof uri== 'string')<span class="container">{
+             <span class="title">io</span>.<span class="title">src</span> = <span class="title">uri</span>;
+         }</span></span>
+    }
+}
+</code></pre>
+<h3>textarea用jQ的html方法取不到值</h3>
+<p>使用val();但是百度之后又发现另一个问题，只是我在项目还没有碰到。<a href="http://www.cnblogs.com/long_/archive/2010/07/28/1787124.html">JQuery TextArea的取值与赋值问题</a></p>
+<p>todo.. 整理</p>
+<h3>参考网址</h3>
+<p><a href="http://zmingcx.com/css-compulsory-english-chinese-and-non-wrapping-line.html#">CSS强制英文、中文换行与不换行</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/03/some-problem-in-project-diary/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T16:00:00.000Z"><a href="/2013/04/03/negative-margin-application/">Apr 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/03/negative-margin-application/">负边距的应用的总结</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>初中的时候开始学习坐标轴，开始接触负数。不管怎么说数学中都要学习的负数，总是有积极意义的吧。谁都不想银行卡的钱是负数的，但是css中如果使用负数可以解决一些比较棘手的问题的。本文参考网络结合自身的项目对margin的负值做一个小小的总结。</p>
+<h3>1、定宽定高的block元素垂直居中</h3>
+<h3>2、减少后台的判断，少写一个.last或者first的css。移除列表右侧多余的间隔、移除底部多余的border</h3>
+<h3>3、tab切换中的应用</h3>
+<h3>4、布局中应用，右侧固定右侧自适应，左右固定中间自适应</h3>
+<h3>5、多列等高的应用</h3>
+<h3>参考链接</h3>
+<p><a href="http://www.gezii.me/?p=57">margin负值的应用</a></p>
+<p><a href="http://fp.labs.lugir.com/node/159">margin负值 – 一个秘密武器</a></p>
+<p><a href="http://www.hicss.net/i-know-you-do-not-know-the-negative-margin/">我知道你不知道的负Margin</a></p>
+<p><a href="http://www.cnblogs.com/rubylouvre/archive/2012/04/28/2474732.html">负值之美：负值在页面布局中的应用</a></p>
+<p><a href="http://udc.weibo.com/2012/09/%E5%BE%AE%E5%90%A7%E9%87%8C%E7%9A%84%E5%90%84%E7%A7%8Dmargin%E8%B4%9F%E5%80%BC/">微吧里的各种margin负值</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/03/negative-margin-application/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T16:00:00.000Z"><a href="/2013/04/03/javascript-oop/">Apr 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/03/javascript-oop/">JavaScript面向对象学习</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>一直以来对JavaScript的面向对象都很模糊，有时感觉自己懂一点点了，有时候感觉自己什么都不懂。在此将学习过程做个笔记，真正把这块内容拿下。</p>
+<p>JavaScript是弱类型语言，没有class关键字，全靠prototype来实现继承。prototype应该是JavaScript独有的吧，其实现的方式很奇特。</p>
+<p>todo.. 整理</p>
+<h3>参考网址</h3>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html">Javascript继承机制的设计思想</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html">Javascript 面向对象编程（一）：封装</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html">Javascript面向对象编程（二）：构造函数的继承</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html">Javascript面向对象编程（三）：非构造函数的继承</a></p>
+<p><a href="http://www.cnblogs.com/enein/archive/2012/12/03/2799160.html#2568934">理解John Resig&#39;s &#39;Simple JavaScript Inheritance&#39;代码</a></p>
+<p><a href="http://www.cnblogs.com/sanshi/archive/2009/07/09/1519890.html">JavaScript继承详解（三）</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/03/javascript-oop/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-02T16:00:00.000Z"><a href="/2013/04/03/javascript-about-this/">Apr 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/03/javascript-about-this/">JavaScript的this</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>JavaScript的this整理</p>
+<p>setTimeout的this是指向window的
+setTimeout 里面相当于eval（“fn”）,然后setTimeout本来就是一个方法</p>
+<p>todo.. 整理</p>
+<h3>参考网址</h3>
+<p><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html">Javascript的this用法</a></p>
+<p><a href="http://hi.baidu.com/flondon/item/488353102185ee9a99ce339a">Javascript中的this关键字（精华版）</a></p>
+<p><a href="http://www.zhihu.com/question/19624483">JavaScript 中 this 是如何工作的？</a></p>
+<p><a href="http://bonsaiden.github.com/JavaScript-Garden/zh/#function.this">this 的工作原理</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/03/javascript-about-this/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-31T16:00:00.000Z"><a href="/2013/04/01/regular-expression/">Apr 1 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/01/regular-expression/">JavaScript正则表达式总结</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>本人学习过程中对JavaScript正则表达式总结。
+在做转发功能的时候需要将用户名和图片的title转移到textarea中。如果用jQ的html会有很多的html代码，如果用jQ的text则会丢失img的title。解决的办法用正则表达式替换掉html的标签。具体的功能如下图：</p>
+<p><img src="http://huixisheng.github.com/images/article/regular-expression-share.png" alt="转发功能用到的正则表达式"></p>
+<p>todo..</p>
+<h3>参考网址</h3>
+<p><a href="http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html">司徒正美-JavaScript正则表达式</a></p>
+<p><a href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a></p>
+<p><a href="http://www.iteye.com/topic/481228">精通 JS正则表达式</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/01/regular-expression/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/CSS/">CSS</a><small>2</small></li>
+  
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>3</small></li>
+  
+    <li><a href="/categories/Web前端/">Web前端</a><small>1</small></li>
+  
+    <li><a href="/categories/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/categories/前端工具/">前端工具</a><small>1</small></li>
+  
+    <li><a href="/categories/前端规范/">前端规范</a><small>1</small></li>
+  
+    <li><a href="/categories/项目总结/">项目总结</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/2012/">2012</a><small>1</small></li>
+  
+    <li><a href="/tags/CSS/">CSS</a><small>3</small></li>
+  
+    <li><a href="/tags/CSS3/">CSS3</a><small>1</small></li>
+  
+    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
+  
+    <li><a href="/tags/OOP/">OOP</a><small>1</small></li>
+  
+    <li><a href="/tags/bootsrap/">bootsrap</a><small>1</small></li>
+  
+    <li><a href="/tags/margin/">margin</a><small>1</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/this/">this</a><small>1</small></li>
+  
+    <li><a href="/tags/优秀前端博客/">优秀前端博客</a><small>1</small></li>
+  
+    <li><a href="/tags/前端工具/">前端工具</a><small>1</small></li>
+  
+    <li><a href="/tags/前端性能/">前端性能</a><small>1</small></li>
+  
+    <li><a href="/tags/前端规范/">前端规范</a><small>1</small></li>
+  
+    <li><a href="/tags/导航/">导航</a><small>1</small></li>
+  
+    <li><a href="/tags/年度总结/">年度总结</a><small>1</small></li>
+  
+    <li><a href="/tags/手册/">手册</a><small>1</small></li>
+  
+    <li><a href="/tags/效率/">效率</a><small>2</small></li>
+  
+    <li><a href="/tags/整理/">整理</a><small>2</small></li>
+  
+    <li><a href="/tags/正则/">正则</a><small>1</small></li>
+  
+    <li><a href="/tags/资源/">资源</a><small>1</small></li>
+  
+    <li><a href="/tags/项目总结/">项目总结</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 huixisheng
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'huixisheng';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
